@@ -40,7 +40,7 @@ if(n<2)return;
 for(int i=0;i<mid;i++){
     L[i]=A[i];
 }
-for(int j=0;j<n;j++){
+for(int j=0;j<nR;j++){
     R[j]=A[mid+j];
 }
 MergeSort(L,nL);

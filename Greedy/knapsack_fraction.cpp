@@ -50,14 +50,18 @@ for(int i=0;i<n;i++){
 float benefit=0;
 int i=0;
 while(total_weight>0){
+    
 if(total_weight>=g[i].weight){
     total_weight=total_weight-g[i].weight;
     benefit=benefit+float(g[i].profit);
     }
+
     else{
+        
         benefit=benefit+(g[i].profit*(total_weight/g[i].weight));
         total_weight=total_weight-g[i].weight;
-    }
+    
+}
     i++;
 }
     
