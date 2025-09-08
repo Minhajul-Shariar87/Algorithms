@@ -8,6 +8,7 @@ int main(){
     int x=sizeof(d)/sizeof(d[0]);
     int s=x-1;
     int arr[s][s];
+    int p1[s][s];
     
     
     for(int i=0;i<s;i++){
@@ -18,9 +19,22 @@ int main(){
         for(int j=0;j<s;j++){
         if(i!=j){
         arr[i][j]=45;
+        
         }
         }
     }
+
+    for(int i=0;i<s;i++){
+        for(int j=0;j<s;j++){
+        
+        p1[i][j]=45;
+        
+        
+        }
+    }
+
+
+    
     for(int i=0;i<s;i++){
         for(int j=0;j<s;j++){
         cout<<arr[i][j]<<" ";
@@ -35,13 +49,18 @@ int main(){
             int cnt=9999999;
             
             for(int k=i;k<j;k++){
+                int min;
                 arr[i][j]=arr[i][k]+arr[k+1][j]+(d[i]*d[k+1]*d[j+1]);
                 
-                cnt=min(cnt,arr[i][j]);
-                arr[i][j]=cnt;
+                
+                if(arr[i][j]<cnt){
+                    cnt=arr[i][j];
+                    p1[i][j]=k;
+                }
                 
                 
             }
+            arr[i][j]=cnt;
                 
             
             break;
@@ -59,9 +78,24 @@ int main(){
         }
         cout<<endl;
     }
+    cout<<endl;
 
-    cout<<arr[0][s-1];
+    for(int i=0;i<s;i++){
+        for(int j=0;j<s;j++){
+            if(i==j){
+        cout<<static_cast<char>(p1[i][j])<<" ";
+            }
+            else if(i!=j  && i>j){
+                cout<<static_cast<char>(p1[i][j])<<" ";
+            }
+            else{
+                cout<<p1[i][j]+1<<" ";
+            }
+        }
+        cout<<endl;
+    }
 
+        
     
     
     
