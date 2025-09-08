@@ -3,7 +3,7 @@ using namespace std;
 
 int main(){
     
-    int d[]={30,35,15,5,10,20,25};
+    int d[]={2,1,3,4};
     
     int x=sizeof(d)/sizeof(d[0]);
     int s=x-1;
@@ -35,13 +35,13 @@ int main(){
 
 
     
-    for(int i=0;i<s;i++){
-        for(int j=0;j<s;j++){
-        cout<<arr[i][j]<<" ";
-        }
-        cout<<endl;
-    }
-    cout<<endl;
+    // for(int i=0;i<s;i++){
+    //     for(int j=0;j<s;j++){
+    //     cout<<arr[i][j]<<" ";
+    //     }
+    //     cout<<endl;
+    // }
+    // cout<<endl;
     
     for(int l=1;l<s;l++){
         for(int i=0;i<s-1;i++){
