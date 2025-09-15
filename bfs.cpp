@@ -47,31 +47,34 @@ int main(){
         cout<<endl;
     }
     int start;
-    int position=0;
-    cin>>start;
-    for(int i=0;i<vertices;i++){
-        for(int j=0;j<vertices;j++){
-            if(bfs[i][j]==start){
-                position=j;
-                bfs[i][j]=0;
-                bfs[j][i]=0;
-                cout<<bfs[i][j]<<" ";
-                break;
-            }
-        }
-        break;
-    }
 
-    for(int i=position;i<vertices;i++){
+    cout<<"Enter which to start: ";
+    cin>>start;
+
+    int cnt=0;
+    int cnt1=0;
+    int q[vertices];
+    cout<<start<<" ";
+
+    int i=start;
+    while(i<vertices){
         for(int j=0;j<vertices;j++){
             if(bfs[i][j]==1){
+                q[cnt1]=j;
+                cnt1++;
+                
                 cout<<j<<" ";
                 bfs[i][j]=0;
                 bfs[j][i]=0;
+
                 
             }
         }
+        i=q[cnt];
+        cnt++;
     }
+
+
 
 
     
