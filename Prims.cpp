@@ -7,7 +7,7 @@ int main(){
     
     int v,e;
     char f,t;
-    cout<<"Enter no of Vertices: ";
+    cout<<"Enter no of vertices: ";
     cin>>v;
     char arr1[v][v];
     int arr[v][v];
@@ -32,8 +32,7 @@ int main(){
         fcnt=f-'A';
         
         tcnt=t-'A';
-        cout<<fcnt<<endl;
-        cout<<tcnt<<endl;
+       
         arr[fcnt][tcnt]=1;
         arr[tcnt][fcnt]=1;
         
@@ -45,5 +44,7 @@ int main(){
         }
         cout<<endl;
     }
+    int start;
+    cout<<"Enter "
     
 }
