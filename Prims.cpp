@@ -9,11 +9,11 @@ int main(){
     char f,t;
     cout<<"Enter no of vertices: ";
     cin>>v;
-    vector<int>store;
+   
     char arr1[v][v];
     int arr[v][v];
-    vector<int>prims;
-    int store[v];
+    vector<int>prims(v,0);
+    vector<int>store(v,0);
     int cnt=0;
     int fcnt,tcnt;
     for(int i=0;i<v;i++){
@@ -53,38 +53,68 @@ int main(){
     cin>>start;
     int i=start-'A';
     
-    int cnt=0,value1=0;
-    int nmin=999999999;
+    int value1=0;
+
+    // cout<<"LOop STarts"<<endl;
+    int loop=0;
+  
+    while(loop<v){
+       int nmin=999999999;
      for(int k=0;k<v;k++){
         if(arr[i][k]!=0){
         
-         if(nmin<arr[i][k]){
-            nmin=arr[i][k];
-            i=k;
-            prims[cnt]=nmin;
+         if(store[k]==0){
+           store[k]=arr[i][k];
+            arr[i][k]=0;
+            arr[k][i]=0;
          }else{
-            store.push_back(arr[i][k]);
+            store[k]=min(store[k],arr[i][k]);
+            arr[i][k]=0;
+            arr[k][i]=0;
+            
          }
         }
 
      }
-    while(i<v){
-        int nmin=999999999;
-        for(int k=0;k<store.size();k++){
-            if(arr[i][k]!=0){
-        
-         if(nmin<arr[i][k]){
-            nmin=arr[i][k];
-            i=k;
+    //  for(int x:store){
+    //     cout<<x<<" ";
+    // }
+    // cout<<endl;
+     
+     
+     
+    int index=0;
+     for(int k=0;k<store.size();k++){
+
+        if(nmin>store[k]&&store[k]!=0){
+            nmin=store[k];
+            // cout<<nmin<<" ";
             prims[cnt]=nmin;
-         }else{
-            store.push_back(arr[i][k]);
-         }
+            index=k;
+            
+            i=k;
         }
-        }
+        // cout<<endl;
+     }
+     store[index]=0;
+    //  for(int x:prims){
+    //     cout<<x<<" ";
+    // }
+    // cout<<endl;
+     cnt++;
+        loop++;
         
     }
-
+    for(int x:prims){
+        cout<<x<<" ";
+    }
+    cout<<endl;
+    
+int sum=0;
+for(int x:prims){
+        sum=sum+x;
+    }
+    cout<<sum<<endl;
 
     
 }
